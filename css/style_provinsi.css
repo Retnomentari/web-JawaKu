@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+
+:root{
+    --orange:#e26d05;
+    --black: #121212;
+    --white: #fff;
+    --text-color-1:#444;
+    --text-color-2:#666;
+    --text-color-3:rgb(83, 83, 83);
+    --kesenian-card : #eee;
+    --bg-color-1:#fff;
+    --bg-color-2:#eee;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(255,255,255,.3);
+
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width:.8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:var(--orange);
+    border-radius: 5rem;
+}
+
+body{
+    background:var(--bg-color-2);
+}
+
+body.active{
+    --text-color-1:#fff;
+    --text-color-2:#eee;
+    --text-color-3:rgb(211, 211, 211);
+    --kesenian-card : #666;
+    --bg-color-1:#333;
+    --bg-color-2:#222;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.4);
+}
+
+section{
+    padding:2rem 7%;
+}
+
+.heading{
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color:var(--text-color-1);
+    font-size: 4rem;
+}
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom: 1rem; left: 0;
+    z-index: -1;
+    background: var(--orange);
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.8rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background:var(--orange);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    letter-spacing: .2rem;
+}
+
+.header{
+    position: fixed;
+    top:0; left:0; right:0;
+    background:var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem 7%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo{
+    font-weight: bolder;
+    font-size: 3rem;
+    color:var(--text-color-1);
+}
+
+.header .logo img{
+    width: 14rem;
+}
+
+.header .logo i{
+    color:var(--orange);
+}
+
+.header .search-form{
+    background:var(--bg-color-2);
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    height: 4.5rem;
+    width:50rem;
+}
+
+.header .search-form input{
+    height:100%;
+    width:100%;
+    background:none;
+    text-transform: none;
+    font-size: 1.5rem;
+    color:var(--text-color-1);
+    padding:1rem;
+}
+
+.header .search-form label{
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color:var(--text-color-1);
+    cursor: pointer;
+}
+
+.header .search-form label:hover{
+    color:var(--orange);
+}
+
+.header .icons div{
+    height:4.5rem;
+    width:4.5rem;
+    line-height:4.5rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    margin-left: .5rem;
+    background:var(--bg-color-2);
+    color:var(--text-color-1);
+    cursor: pointer;
+    text-align: center;
+}
+
+.header .icons div:hover{
+    color:#fff;
+    background:var(--orange);
+}
+
+#search-btn{
+    display:none;
+}
+
+/* ========================== HEADER CSS STARTS ===========================  */
+.header .navbar{
+    position:absolute;
+    top:115%; right:7%;
+    background:var(--bg-color-1);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    width:25rem;
+    transform:scale(0);
+    transform-origin: top right;
+}
+
+.header .navbar.active{
+    transform:scale(1);
+}
+
+.header .navbar a{
+    display:block;
+    margin:1rem;
+    padding:1rem;
+    font-size: 1.5rem;
+    color:var(--text-color-1);
+    border-radius: .5rem;
+}
+
+.header .navbar a:hover{
+    color:var(--orange);
+    background:var(--bg-color-2);
+    padding-left: 2rem;
+}
+
+/* ========================== HEADER CSS ENDS ===========================  */
+
+
+/* ========================== HOME CSS STARTS ===========================  */
+.home .bg1{
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.home .bg1:after{
+  background: rgba(56, 56, 56, 0.877);
+  content: '';
+  filter: opacity(0.7);
+  height: 100%;
+  left: 0;
+  opacity: 0.7;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)';
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.home .landingpage-content{
+ margin-top: 20rem;
+ align-items: center;
+ justify-content: center;
+ display: flex;
+ left: 50%;
+ margin-bottom: 20rem;
+}
+
+.home .landingpage-content .city-logo{
+  margin-right: 56px;
+  width: 168px;
+}
+
+.home .landingpage-content .city-logo img{
+    width: 100%;
+    align-items: center;
+}
+
+.home .landingpage-content .city-desc .city-title{
+    color: var(--orange);
+    font-size: 57.6px;
+    font-size: 3.6rem;
+}
+
+.home .landingpage-content .city-desc p{
+    color: #fff;
+    font-weight: 300;
+    display: block;
+    font-size: 2.6rem;
+}
+
+.home .landingpage-content .city-desc .city-motto{
+    color: #fff;
+    font-weight: 100;
+    display: block;
+    font-size: 1.6rem;
+}
+
+.home .arrow .arrow-down{
+    -webkit-animation: up-down 2.5s infinite;
+    animation: up-down 2.5s infinite;
+    bottom: 10%;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    color: #fff;
+}
+
+.home .arrow .arrow-down i{
+    font-size: 3.5rem;
+}
+/* ========================== HOME CSS ENDS ===========================  */
+
+
+/* ========================== DESKRIPSI CSS STARTS ===========================  */
+.deskripsi .deskripsi-content div{
+ -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  flex:1 1 45rem;
+}
+
+.deskripsi .deskripsi-content div .map {
+  height: 30rem;
+  margin-right: 70px;
+  position: relative;
+  width: 150rem;
+}
+
+.deskripsi .deskripsi-content div .map iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.deskripsi .deskripsi-content .deskripsi-text{
+    width: 70%;
+}
+
+.deskripsi .deskripsi-content .deskripsi-text p{
+    color: var(--text-color-1);
+    font-size: 18px;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+/* ========================== DESKRIPSI CSS ENDS ===========================  */
+
+
+/* ========================== JENDELA PROVINSI CSS STARTS ===========================  */
+.jendela_prov .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+  }
+  
+  .jendela_prov .box-container .box{
+    border:.1rem solid var(--text-color-1);
+  }
+  
+  .jendela_prov .box-container .box .image{
+    height: 25rem;
+    overflow:hidden;
+    width: 100%;
+  }
+  
+  .jendela_prov .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  .jendela_prov .box-container .box:hover .image img{
+    transform: scale(1.2);
+  }
+  
+  .jendela_prov .box-container .box .content{
+    padding:2rem;
+  }
+  
+  .jendela_prov .box-container .box .content .title{
+    font-size: 2.5rem;
+    line-height: 1.5;
+    color: var(--text-color-1);
+  }
+  
+  .jendela_prov .box-container .box .content .title:hover{
+    color:var(--orange);
+  }
+  
+  .jendela_prov .box-container .box .content span{
+    color:var(--orange);
+    display: block;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .jendela_prov .box-container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-color-2);
+    padding:1rem 0;
+  }
+  /* ========================== JENDELA PROVINSI CSS ENDS ===========================  */
+
+
+/* ============================= KESENIAN CSS STARTS ===============================  */
+.kesenian .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+  }
+  
+  .kesenian .box-container .box{
+    flex:1 1 40rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: .5rem;
+    border:.1rem solid var(--text-color-1);
+  }
+  
+  .kesenian .box-container .box .image{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    position: absolute;
+    top:-100%; 
+    left:0;
+  }
+  
+  .kesenian .box-container .box .content{
+    text-align: center;
+    padding:2rem;
+  }
+  
+  .kesenian .box-container .box .content img{
+    margin:1.5rem 0;
+  }
+  
+  .kesenian .box-container .box .content h3{
+    font-size: 2.5rem;
+    color: var(--text-color-1);
+  }
+  
+  .kesenian .box-container .box .content p{
+    font-size: 1.6rem;
+    color: var(--text-color-2);
+    padding:1rem 0;
+  }
+  
+  .kesenian .box-container .box:hover .image{
+    top:0;
+  }
+  
+  .kesenian .box-container .box:hover .content{
+    transform: translateY(100%);
+  }
+  /* ============================= KESENIAN CSS ENDS ===============================  */
+  
+
+/* ============================= TRADISI CSS STARTS ===============================  */
+.tradisi{
+    margin-bottom: 10rem;
+  }
+  
+  .tradisi .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
+  }
+  
+  .tradisi .row .image{
+    flex:1 1 42rem;
+  }
+  
+  .tradisi .row .image img{
+    width: 100%;
+    animation:tradisiImage 4s linear infinite;
+  }
+
+  @keyframes tradisiImage {
+    0%, 100%{
+        transform: scale(.9);
+        border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
+    }
+    50%{
+        transform: scale(.8);
+        border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+    }
+    }
+
+  .tradisi .row .content{
+    flex:1 1 42rem;
+    padding:2rem;
+  }
+  
+  .tradisi .row .content h3{
+    font-size: 3rem;
+    color: var(--text-color-1);
+    padding-bottom: 1rem;
+  }
+  
+  .tradisi .row .content p{
+    font-size: 1.6rem;
+    color: var(--text-color-2);
+    padding:1rem 0;
+    line-height: 1.8;
+  }
+/* ============================= TRADISI CSS ENDS ===============================  */
+
+
+
+/* ============================= FOOTER CSS STARTS ===============================  */
+.footer-container{
+	max-width: 1170px;
+	margin:auto;
+}
+.footer-row{
+	display: flex;
+	flex-wrap: wrap;
+}
+.footer-col ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+  padding: 30px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+
+.footer-col h4{
+	font-size: 18px;
+	color: var(--white);
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+
+.logo-col img{
+  margin-top: 9rem;
+  height: 5rem;
+  margin-right: 9rem;
+}
+
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: var(--orange);
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: var(--white);
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: var(--white);
+	padding-left: 8px;
+}
+
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: var(--white);
+	transition: all 0.5s ease;
+}
+
+.footer-col .social-links i{
+  margin-top: 1.1rem;
+  font-size: 14pt;
+}
+
+.footer-col .social-links a:hover{
+	color: var(--orange);
+	background-color: var(--white);
+}
+
+.footer .credit{
+    font-size: 2rem;
+    text-align: center;
+    border-top: .1rem solid var(--text-color-2);
+    padding:1rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    color:var(--text-color-2);
+}
+
+.footer .credit span{
+    color:var(--orange);
+}
+
+/* ============================= FOOTER CSS ENDS ===============================  */
+
+/* ======================= MEDIA QUERIS ======================= */
+
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:1.5rem 2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+    .diskripsi .diskripsi-content{
+        text-align: center;
+    }
+}
+
+@media (max-width:768px){
+
+    .header .navbar{
+        right: 2rem;
+    }
+
+    .header .login-form{
+        right: 2rem;
+    }
+
+    #search-btn{
+        display:inline-block;
+    }
+
+    .deskripsi{
+        flex-flow: column-reverse;
+    }
+    .header .search-form{
+        position: absolute;
+        top:115%; right: 2rem;
+        background:var(--bg-color-1);
+        border-radius: .5rem;
+        width: 90%;
+        box-shadow: var(--box-shadow);
+        transform:scale(0);
+        transform-origin: top right;
+    }
+
+    .header .search-form.active{
+        transform:scale(1);
+    }
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+      }
+      .footer-logo {
+        color: var(--white);
+        font-weight: 700;
+        font-size: 4em;
+        text-decoration: none;
+        margin-top: 9rem;
+        margin-left: 5rem;
+        margin-right: 11.3rem;
+      }
+      .footer-logo:hover{
+        color: var(--orange);
+        font-weight: 700;
+        font-size: 4em;
+        text-decoration: none;
+        margin-top: 9rem;
+        margin-left: 5rem;
+        margin-right: 11.3rem;
+      }
+
+}
+
+@media(max-width: 574px){
+    .footer-col{
+      width: 100%;
+    }
+  }
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .contact form .inputBox input{
+        width: 100%;
+    }
+
+}
+
+
+/* ======================= ANIMATION ======================= */
+@-webkit-keyframes up-down {
+    0% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  
+    50% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    100% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  }
+  @keyframes up-down {
+    0% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  
+    50% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    100% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  }
+
+
